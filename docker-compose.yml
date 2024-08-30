@@ -24,7 +24,7 @@ services:
       context: .
       dockerfile: export/Dockerfile.dev
     env_file:
-      - export/.env
+      - export/.env.example
     volumes:
       - ~/.cache/yarn:/home/node/.cache/yarn
       - ./export:/home/node/app/export

@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:18-alpine
 
 # Installs Chromium package.
 RUN apk update && apk upgrade && \
@@ -25,4 +25,5 @@ COPY export/package.json export/yarn.lock ./
 # Double -- needed as there is currently no way to force Yarn to pass through
 # --, even though this causes Yarn to display its dashDashDeprecation warning.
 # See: https://github.com/yarnpkg/yarn/blob/4df89bc/src/cli/index.js#L202-L228
-CMD yarn && yarn dev -- -- --exitcrash
+# CMD yarn --unsafe-perm && yarn dev -- -- --exitcrash
+CMD ["sh"]
